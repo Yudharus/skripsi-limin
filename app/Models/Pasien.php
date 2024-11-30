@@ -18,6 +18,7 @@ class Pasien extends Model
         'tanggal_lahir', 'alamat', 'no_telepon', 'tempat_lahir',
         'agama', 'pendidikan', 'kota', 'kode_pos',
         'desa_kelurahan', 'kecamatan', 'kabupaten', 'provinsi',
-        'rt_rw', 'pekerjaan', 'kewarganegaraan'
+        'rt_rw', 'pekerjaan', 'kewarganegaraan', 'nama_dokter', 'status_pendaftaran', 'tanggal_kunjungan',
+        'keluhan', 'jenis_kunjungan'
     ];
 }

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 19, 2024 at 04:29 PM
+-- Generation Time: Nov 30, 2024 at 10:54 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -193,6 +193,11 @@ CREATE TABLE `pasien` (
   `rt_rw` varchar(255) NOT NULL,
   `pekerjaan` varchar(255) NOT NULL,
   `kewarganegaraan` varchar(255) NOT NULL,
+  `nama_dokter` varchar(255) NOT NULL,
+  `status_pendaftaran` varchar(255) DEFAULT NULL,
+  `tanggal_kunjungan` varchar(255) NOT NULL,
+  `keluhan` varchar(255) NOT NULL,
+  `jenis_kunjungan` varchar(255) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -201,8 +206,8 @@ CREATE TABLE `pasien` (
 -- Dumping data for table `pasien`
 --
 
-INSERT INTO `pasien` (`id_pasien`, `nik`, `no_ktp`, `nama_lengkap`, `jenis_kelamin`, `tanggal_lahir`, `alamat`, `no_telepon`, `tempat_lahir`, `agama`, `pendidikan`, `kota`, `kode_pos`, `desa_kelurahan`, `kecamatan`, `kabupaten`, `provinsi`, `rt_rw`, `pekerjaan`, `kewarganegaraan`, `created_at`, `updated_at`) VALUES
-(1, '66666666666', '666666666', 'constantin', 'pria', '2024-11-07', 'rumah', '08123129873', 'lampung', 'islam', 'sarjana', 'bumi', '140456', 'lampung / lampung', 'lampung', 'lampung', 'sumatera', '07/09', 'pegawai swasta', 'indonesia', NULL, NULL);
+INSERT INTO `pasien` (`id_pasien`, `nik`, `no_ktp`, `nama_lengkap`, `jenis_kelamin`, `tanggal_lahir`, `alamat`, `no_telepon`, `tempat_lahir`, `agama`, `pendidikan`, `kota`, `kode_pos`, `desa_kelurahan`, `kecamatan`, `kabupaten`, `provinsi`, `rt_rw`, `pekerjaan`, `kewarganegaraan`, `nama_dokter`, `status_pendaftaran`, `tanggal_kunjungan`, `keluhan`, `jenis_kunjungan`, `created_at`, `updated_at`) VALUES
+(10, '8129038120938', '102381923809', 'limin', 'Laki-Laki', '2000-02-22', 'lkajsdlk', '1289378912', 'ljklj', 'klj', 'kljkl', 'jkl', 'jkl', 'jkl', 'jkl', 'jkl', 'jkl', 'jl', 'kjkljkl', 'jklj', 'Dr. Pony Sp.OG', 'Diterima', '2024-02-22', 'keluhan', 'jenis kunjungan', '2024-11-30 02:51:46', '2024-11-30 02:51:46');
 
 -- --------------------------------------------------------
 
@@ -233,13 +238,6 @@ CREATE TABLE `pendaftaran` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `pendaftaran`
---
-
-INSERT INTO `pendaftaran` (`id_pendaftaran`, `id_pasien`, `id_dokter`, `status_pendaftaran`, `tanggal_kunjungan`, `keluhan`, `jenis_kunjungan`, `created_at`, `updated_at`) VALUES
-(1, 1, 1, 'diterima', '2024-11-19', 'kurang uang', 'berobat', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -283,7 +281,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('NWl5oQhCEhwsXInFuxWTMubhcTBkbD1Sr8WCm93N', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiOUlSM2RWMWN3N0JHZWpub0NqbVFLWUR2U2Y1N0pmQ294U1ZtaDVkZCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1732030115);
+('TPbA9v2msgntXVkFPxSW4etu5QL11OVRa32Bt9Xq', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoicWpuR05aZlFVOTE3VU95SnY0WTlNdGloMzdDZnBRWmdHdzh5WTdJayI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzU6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9qYWR3YWwtZG9rdGVyIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1732960334);
 
 -- --------------------------------------------------------
 
@@ -439,7 +437,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `pasien`
 --
 ALTER TABLE `pasien`
-  MODIFY `id_pasien` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_pasien` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `pendaftaran`

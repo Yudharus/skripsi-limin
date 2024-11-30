@@ -9,7 +9,11 @@ class PendaftaranController extends Controller
 {
     public function index()
     {
-        return Pendaftaran::with(['pasien', 'dokter'])->get();
+        $pendaftaran = Pendaftaran::with(['pasien', 'dokter'])->get();
+
+        // Kirim data ke view 'pendaftaran.blade.php'
+        return view('pendaftaran-keluhan', ['pendaftaran' => $pendaftaran]);
+        // return Pendaftaran::with(['pasien', 'dokter'])->get();
     }
 
     public function store(Request $request)

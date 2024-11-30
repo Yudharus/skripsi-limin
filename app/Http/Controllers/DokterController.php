@@ -9,7 +9,9 @@ class DokterController extends Controller
 {
     public function index()
     {
-        return Dokter::all();
+        $datas = Dokter::all();
+
+        return view('dokter-list',['datas' => $datas]);
     }
 
     public function store(Request $request)

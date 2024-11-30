@@ -58,8 +58,34 @@
         </div>
     </div>
     </nav>
-    <div class="h-screen flex items-center justify-center ">
-        <h1 class="text-3xl font-bold ">Informasi Tentang Rumah Sakit Almah</h1>
+    <div class="h-screen flex px-12 py-6 ">
+    <table class="min-w-full border-collapse border border-gray-200">
+            <thead class="bg-gray-800 text-white">
+                <tr>
+                    <th class="border border-gray-300 px-4 py-2 text-left">Nama Dokter</th>
+                    <th class="border border-gray-300 px-4 py-2 text-left">Spesialis</th>
+                    <th class="border border-gray-300 px-4 py-2 text-left">Jadwal Dokter</th>
+                    <!-- <th class="border border-gray-300 px-4 py-2 text-center">Aksi</th> -->
+                </tr>
+            </thead>
+            <tbody class="bg-white">
+                @foreach($datas as $item)
+                <tr>
+                    <td class="border border-gray-300 px-4 py-2">{{ $item->nama_dokter }}</td>
+                    <td class="border border-gray-300 px-4 py-2">{{ $item->spesialis }}</td>
+                    <td class="border border-gray-300 px-4 py-2">{{ $item->jadwal_dokter }}</td>
+                    <!-- <td class="border border-gray-300 px-4 py-2 text-center">
+                        <a href="{{ url('dokter/edit', $item->id) }}" class="text-blue-500 hover:text-blue-700 mr-2">Edit</a>
+                        <form action="{{ url('dokter/delete', $item->id) }}" method="POST" class="inline-block">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="text-red-500 hover:text-red-700">Delete</button>
+                        </form>
+                    </td> -->
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
     </div>
 </body>
 </html>
