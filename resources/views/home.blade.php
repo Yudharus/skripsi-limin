@@ -55,7 +55,7 @@
     </div>
     </nav>
 
-    <button data-drawer-target="default-sidebar" data-drawer-toggle="default-sidebar" aria-controls="default-sidebar" type="button" class="inline-flex items-center p-2 mt-2 ms-3 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
+    <button data-drawer-target="default-sidebar" data-drawer-toggle="default-sidebar" aria-controls="default-sidebar" type="button" class="inline-flex items-center p-2 mt-2 ms-3 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 text-gray-400 hover:bg-gray-700 focus:ring-gray-600">
    <span class="sr-only">Open sidebar</span>
    <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
    <path clip-rule="evenodd" fill-rule="evenodd" d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"></path>
@@ -63,17 +63,17 @@
 </button>
 
 <aside id="default-sidebar" class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidebar">
-   <div class="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
+   <div class="h-full px-3 py-4 overflow-y-auto bg-gray-800">
       <ul class="space-y-2 font-medium">
          <li>
-            <a class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white group">
+            <a class="flex items-center p-2 rounded-lg text-white group">
                <span class="ms-3">Rumah Sakit Almah</span>
             </a>
          </li>
          <!-- Menu untuk Admin -->
          @if($admin->role == 'admin' || $admin->role === 'petugas')
          <li>
-            <a href="{{ route('verifikasi.pendaftaran') }}" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+            <a href="{{ route('verifikasi.pendaftaran') }}" class="flex items-center p-2 rounded-lg text-white hover:bg-gray-100 hover:bg-gray-700 group">
                <span class="flex-1 ms-3 whitespace-nowrap">Verifikasi Pendaftaran</span>
             </a>
          </li>
@@ -81,7 +81,7 @@
 
          @if($admin->role === 'dokter')
          <li>
-            <a href="{{ route('data.pasien.dokter') }}" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+            <a href="{{ route('data.pasien.dokter') }}" class="flex items-center p-2 rounded-lg text-white hover:bg-gray-100 hover:bg-gray-700 group">
                <span class="flex-1 ms-3 whitespace-nowrap">Data Pasien</span>
             </a>
          </li>
@@ -91,7 +91,7 @@
          <!-- Menu untuk Admin dan Dokter -->
          @if($admin->role == 'admin' || $admin->role === 'petugas')
          <li>
-            <a href="{{ route('data.pasien') }}" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+            <a href="{{ route('data.pasien') }}" class="flex items-center p-2 rounded-lg text-white hover:bg-gray-100 hover:bg-gray-700 group">
                <span class="flex-1 ms-3 whitespace-nowrap">Data Pasien</span>
             </a>
          </li>
@@ -100,12 +100,12 @@
          <!-- Menu untuk Admin -->
          @if($admin->role == 'admin')
          <li>
-            <a href="{{ route('data.petugas') }}" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+            <a href="{{ route('data.petugas') }}" class="flex items-center p-2 rounded-lg text-white hover:bg-gray-100 hover:bg-gray-700 group">
                <span class="flex-1 ms-3 whitespace-nowrap">Data Petugas</span>
             </a>
          </li>
          <li>
-            <a href="{{ route('data.dokter') }}" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+            <a href="{{ route('data.dokter') }}" class="flex items-center p-2 rounded-lg text-white hover:bg-gray-100 hover:bg-gray-700 group">
                <span class="flex-1 ms-3 whitespace-nowrap">Data Dokter</span>
             </a>
          </li>
@@ -113,7 +113,7 @@
 
          <!-- Logout untuk semua role -->
          <li>
-            <a class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+            <a class="flex items-center p-2 rounded-lg text-white hover:bg-gray-100 hover:bg-gray-700 group">
                <span class="flex-1 ms-3 whitespace-nowrap">
                <form action="{{ route('logout') }}" method="POST">
                     @csrf
@@ -132,7 +132,7 @@
         <h1 class="text-lg font-bold text-black">Selamat Datang {{ $admin->nama_admin }}</h1>
     @endempty
 
-   <div class="p-4 rounded-lg dark:border-gray-700">
+   <div class="p-4 rounded-lg border-gray-700">
    <main class="flex-1 p-4">
         @yield('content')
     </main>

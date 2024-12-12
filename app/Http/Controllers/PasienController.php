@@ -144,6 +144,8 @@ class PasienController extends Controller
             'status_pendaftaran' => $request->status_pendaftaran,
         ]);
 
+        session()->flash('successUpdateStatus', 'Data verifikasi pendaftaran berhasil diubah!');
+
         return view('verifikasi-pendaftaran', compact('datas', 'dokters', 'admin'));
     }
 
@@ -183,8 +185,9 @@ class PasienController extends Controller
         // Insert data ke tabel pasien
         $pasien = Pasien::create($validated);
 
+        session()->flash('successStorePendaftaranPasien', 'berhasil menambah data pendaftaran!');
         // Redirect kembali ke halaman pendaftaran dengan pesan sukses
-        return redirect()->route('index')->with('success', 'Data pasien berhasil disimpan!');
+        return redirect()->route('index');
         // return redirect()->route('pendaftaran', ['id_pasien' => $pasien->id_pasien])->with('success', 'Data pasien berhasil disimpan!');
     }
 
@@ -223,8 +226,10 @@ class PasienController extends Controller
         // Insert data ke tabel pasien
         $pasien = Pasien::create($validated);
 
+        session()->flash('successStorePasien', 'Data pasien berhasil ditambah!');
+
         // Redirect kembali ke halaman pendaftaran dengan pesan sukses
-        return redirect()->route('data.pasien')->with('success', 'Data pasien berhasil disimpan!');
+        return redirect()->route('data.pasien');
         // return redirect()->route('pendaftaran', ['id_pasien' => $pasien->id_pasien])->with('success', 'Data pasien berhasil disimpan!');
     }
 
@@ -261,8 +266,10 @@ class PasienController extends Controller
             $pasien->alamat = $request->alamat;
             $pasien->save();
         
+        session()->flash('successUpdatePasien', 'Data pasien berhasil diubah!');
+
         // $pasien->where('id_pasien', $request->id_pasien)->update($request->all());
-        return redirect()->route('data.pasien')->with('success', 'Data pasien berhasil diubah!');
+        return redirect()->route('data.pasien');
     }
 
     public function destroy($id)

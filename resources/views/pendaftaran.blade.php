@@ -8,6 +8,8 @@
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 </head>
 <body class="bg-gray-100 font-sans">
 @if(session('success'))
@@ -174,5 +176,15 @@
                 </form>
             </div>
     </div>
+    <script>
+        @if (session('successStorePendaftaranPasien'))
+        Swal.fire({
+            title: 'Sukses!',
+            text: '{{ session('successStorePendaftaranPasien') }}',
+            icon: 'success',
+            confirmButtonText: 'OK'
+        });
+    @endif
+    </script>
 </body>
 </html>

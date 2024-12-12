@@ -45,9 +45,11 @@ class DokterController extends Controller
 
         // Insert data ke tabel dokter
         $dokter = Dokter::create($validated);
+        
+        session()->flash('successStoreDokter', 'Data dokter berhasil disimpan!');
 
         // Redirect kembali ke halaman pendaftaran dengan pesan sukses
-        return redirect()->route('data.dokter')->with('success', 'Data dokter berhasil disimpan!');
+        return redirect()->route('data.dokter');
     }
 
     public function update(Request $request)
@@ -58,8 +60,10 @@ class DokterController extends Controller
         $dokter->jadwal_dokter = $request->jadwal_dokter;
         
         $dokter->save();
+
+        session()->flash('successUpdateDokter', 'Data dokter berhasil diubah!');
     
-        return redirect()->route('data.dokter')->with('success', 'Data Dokter berhasil disimpan!');
+        return redirect()->route('data.dokter');
     }
 
 

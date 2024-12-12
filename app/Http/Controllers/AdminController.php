@@ -53,8 +53,9 @@ class AdminController extends Controller
         // Insert data ke tabel admin
         $admin = Admin::create($validated);
 
+        session()->flash('successStorePetugas', 'Data petugas berhasil ditambah!');
         // Redirect kembali ke halaman pendaftaran dengan pesan sukses
-        return redirect()->route('data.petugas')->with('success', 'Data petugas berhasil disimpan!');
+        return redirect()->route('data.petugas');
     }
 
     public function login(Request $request)
@@ -68,9 +69,11 @@ class AdminController extends Controller
 
         if ($admin && $admin->password === $request->password) {
             Session::put('admin', $admin);
+            session()->flash('successLogin', 'berhasil login!');
             return redirect('/home');
         }
 
+        session()->flash('failedLogin', 'username / password salah!');
         // Jika login gagal
         return back()->withErrors([
             'username' => 'Invalid username or password.',
@@ -127,7 +130,9 @@ class AdminController extends Controller
         
         $admin->save();
     
-        return redirect()->route('data.petugas')->with('success', 'Data petugas berhasil disimpan!');
+        session()->flash('successUpdatePetugas', 'Data petugas berhasil diubah!');
+     
+        return redirect()->route('data.petugas');
     }
 
     public function destroy($id)
