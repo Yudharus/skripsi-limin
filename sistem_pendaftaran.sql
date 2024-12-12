@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 30, 2024 at 10:54 AM
+-- Generation Time: Dec 12, 2024 at 12:54 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -32,6 +32,7 @@ CREATE TABLE `admin` (
   `nama_admin` varchar(255) NOT NULL,
   `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
+  `role` varchar(256) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -40,8 +41,10 @@ CREATE TABLE `admin` (
 -- Dumping data for table `admin`
 --
 
-INSERT INTO `admin` (`id_admin`, `nama_admin`, `username`, `password`, `created_at`, `updated_at`) VALUES
-(1, 'admin', 'admin', 'admin', NULL, NULL);
+INSERT INTO `admin` (`id_admin`, `nama_admin`, `username`, `password`, `role`, `created_at`, `updated_at`) VALUES
+(16, 'admin', 'admin', 'admin', 'admin', NULL, NULL),
+(17, 'petugas apdet ah', 'petugas', 'petugas', 'petugas', '2024-12-12 03:47:16', '2024-12-12 04:04:08'),
+(19, 'dokter', 'dokter', 'dokter', 'dokter', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -87,7 +90,9 @@ CREATE TABLE `dokter` (
 --
 
 INSERT INTO `dokter` (`id_dokter`, `nama_dokter`, `spesialis`, `jadwal_dokter`, `created_at`, `updated_at`) VALUES
-(1, 'Dr. Pony Sp.OG', 'Organ Dalam', 'senin: 07:00 - 17:00\r\nselasa: 07:00 - 14:00', NULL, NULL);
+(1, 'Dr. Pony Sp.OG', 'Organ Dalam', 'senin: 07:00 - 17:00\r\nselasa: 07:00 - 14:00', NULL, NULL),
+(5, '0909', '090', '9090', '2024-12-12 04:15:22', '2024-12-12 04:15:22'),
+(6, 'popop', 'opo', 'popo', '2024-12-12 04:15:26', '2024-12-12 04:15:26');
 
 -- --------------------------------------------------------
 
@@ -207,7 +212,10 @@ CREATE TABLE `pasien` (
 --
 
 INSERT INTO `pasien` (`id_pasien`, `nik`, `no_ktp`, `nama_lengkap`, `jenis_kelamin`, `tanggal_lahir`, `alamat`, `no_telepon`, `tempat_lahir`, `agama`, `pendidikan`, `kota`, `kode_pos`, `desa_kelurahan`, `kecamatan`, `kabupaten`, `provinsi`, `rt_rw`, `pekerjaan`, `kewarganegaraan`, `nama_dokter`, `status_pendaftaran`, `tanggal_kunjungan`, `keluhan`, `jenis_kunjungan`, `created_at`, `updated_at`) VALUES
-(10, '8129038120938', '102381923809', 'limin', 'Laki-Laki', '2000-02-22', 'lkajsdlk', '1289378912', 'ljklj', 'klj', 'kljkl', 'jkl', 'jkl', 'jkl', 'jkl', 'jkl', 'jkl', 'jl', 'kjkljkl', 'jklj', 'Dr. Pony Sp.OG', 'Diterima', '2024-02-22', 'keluhan', 'jenis kunjungan', '2024-11-30 02:51:46', '2024-11-30 02:51:46');
+(10, 'apdet bos', 'apdet bos', 'apdet bos uhuy', 'Laki-Laki', '2000-02-22', 'apdet bos', 'apdet bos', 'apdet bos', 'apdet bos', 'apdet bos', 'apdet bos', 'apdet bos', 'apdet bos', 'apdet bos', 'apdet bos', 'apdet bos', 'apdet bos', 'apdet bos', 'apdet bos', 'Dr. Pony Sp.OG', 'Diterima', '2024-02-22', 'apdet bos', 'apdet bos', '2024-11-30 02:51:46', '2024-12-12 04:50:01'),
+(11, 'asd', 'asd 9999', 'asd', 'Laki-Laki', '2024-12-11', 'asd', 'asdasd', 'asd', 'asd', 'ads', 'asd', 'asd', 'asd', 'asd', 'sad', 'asd', 'asd', 'asd', 'ads', 'Dr. Pony Sp.OG', 'Diterima', '2024-12-12', 'asd 99999', '99999', NULL, '2024-12-12 00:56:20'),
+(13, 'modal', 'modal', 'modal', 'Laki-Laki', '2000-02-22', 'modal', 'modal', 'modal', 'modal', 'modal', 'modal', 'modal', 'modal', 'modal', 'modal', 'modal', 'modal', 'modal', 'modal', 'Dr. Pony Sp.OG', 'Diterima', '2000-02-22', 'modal', 'modal', '2024-12-11 09:16:23', '2024-12-11 09:16:23'),
+(14, '00', '00', 'apdet ah', 'Laki-Laki', '2000-02-22', '00', '00', '00', '0', '00', '00', '00', '00', '00', '00', '00', '00', '00', '00', 'Dr. Pony Sp.OG', 'Diterima', '2000-02-22', '000', '00', '2024-12-11 23:18:35', '2024-12-12 04:04:02');
 
 -- --------------------------------------------------------
 
@@ -281,7 +289,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('TPbA9v2msgntXVkFPxSW4etu5QL11OVRa32Bt9Xq', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoicWpuR05aZlFVOTE3VU95SnY0WTlNdGloMzdDZnBRWmdHdzh5WTdJayI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzU6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9qYWR3YWwtZG9rdGVyIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1732960334);
+('TTRQTtJ5FUetKq7z09uULUxQno1EelNDquzTZnzH', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiNmVGbXhscmdsWFZwc0ZQa0NBQTh4dm1QSDhTaFlHQlBxQUhmcDc5YSI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzU6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9qYWR3YWwtZG9rdGVyIjt9fQ==', 1734004370);
 
 -- --------------------------------------------------------
 
@@ -407,13 +415,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id_admin` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_admin` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `dokter`
 --
 ALTER TABLE `dokter`
-  MODIFY `id_dokter` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_dokter` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -437,7 +445,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `pasien`
 --
 ALTER TABLE `pasien`
-  MODIFY `id_pasien` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_pasien` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `pendaftaran`
