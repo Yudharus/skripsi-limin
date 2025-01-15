@@ -214,7 +214,7 @@ const deletePetugas = (id) => {
 
 @if (session('successUpdatePetugas'))
         Swal.fire({
-            title: 'Gagal!',
+            title: 'Sukses!',
             text: '{{ session('successUpdatePetugas') }}',
             icon: 'success',
             confirmButtonText: 'OK'

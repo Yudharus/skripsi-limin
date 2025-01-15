@@ -71,10 +71,10 @@
             </a>
          </li>
          <!-- Menu untuk Admin -->
-         @if($admin->role == 'admin' || $admin->role === 'petugas')
+         @if($admin->role === 'admin' || $admin->role === 'petugas')
          <li>
             <a href="{{ route('verifikasi.pendaftaran') }}" class="flex items-center p-2 rounded-lg text-white hover:bg-gray-100 hover:bg-gray-700 group">
-               <span class="flex-1 ms-3 whitespace-nowrap">Verifikasi Pendaftaran</span>
+               <span class="flex-1 ms-3 whitespace-nowrap">Data Pendaftaran</span>
             </a>
          </li>
          @endif
@@ -89,7 +89,7 @@
 
 
          <!-- Menu untuk Admin dan Dokter -->
-         @if($admin->role == 'admin' || $admin->role === 'petugas')
+         @if($admin->role === 'admin' || $admin->role === 'petugas')
          <li>
             <a href="{{ route('data.pasien') }}" class="flex items-center p-2 rounded-lg text-white hover:bg-gray-100 hover:bg-gray-700 group">
                <span class="flex-1 ms-3 whitespace-nowrap">Data Pasien</span>
@@ -98,7 +98,7 @@
          @endif
 
          <!-- Menu untuk Admin -->
-         @if($admin->role == 'admin')
+         @if($admin->role === 'admin')
          <li>
             <a href="{{ route('data.petugas') }}" class="flex items-center p-2 rounded-lg text-white hover:bg-gray-100 hover:bg-gray-700 group">
                <span class="flex-1 ms-3 whitespace-nowrap">Data Petugas</span>
@@ -130,6 +130,7 @@
 <div class="p-4 sm:ml-64">
 @empty(trim($__env->yieldContent('content')))
         <h1 class="text-lg font-bold text-black">Selamat Datang {{ $admin->nama_admin }}</h1>
+        <h1 class="text-lg font-bold text-black">role {{ $admin->role }}</h1>
     @endempty
 
    <div class="p-4 rounded-lg border-gray-700">

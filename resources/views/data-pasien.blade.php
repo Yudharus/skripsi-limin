@@ -315,8 +315,11 @@
             <th class="py-2 px-4 border">Nama</th>
             <th class="py-2 px-4 border">NIK</th>
             <th class="py-2 px-4 border">No.KTP</th>
-            <th class="py-2 px-4 border">Nomor HP</th>
-            <th class="py-2 px-4 border">Alamat</th>
+            <!-- <th class="py-2 px-4 border">Nomor HP</th> -->
+            <!-- <th class="py-2 px-4 border">Alamat</th> -->
+            <th class="py-2 px-4 border">Nama Dokter</th>
+            <th class="py-2 px-4 border">Keluhan</th>
+            <th class="py-2 px-4 border">Tanggal Pendaftaran</th>
             <th class="py-2 px-4 border">Aksi</th>
         </tr>
     </thead>
@@ -326,8 +329,12 @@
             <td class="py-2 px-4 border">{{ $data->nama_lengkap }}</td>
             <td class="py-2 px-4 border">{{ $data->nik }}</td>
             <td class="py-2 px-4 border">{{ $data->no_ktp }}</td>
-            <td class="py-2 px-4 border">{{ $data->no_telepon }}</td>
-            <td class="py-2 px-4 border">{{ $data->alamat }}</td>
+            <!-- <td class="py-2 px-4 border">{{ $data->no_telepon }}</td> -->
+            <!-- <td class="py-2 px-4 border">{{ $data->alamat }}</td> -->
+            <td class="py-2 px-4 border">{{ $data->nama_dokter }}</td>
+            <td class="py-2 px-4 border">{{ $data->keluhan }}</td>
+            <td class="py-2 px-4 border">{{ $data->created_at }}</td>
+
             <td class="py-2 px-4 border flex flex-row">
             
                 <button data-modal-target="editPasienModal" onclick="adam({{$data->id_pasien}})" data-modal-toggle="editPasienModal" class='btn-edit w-full bg-yellow-500 hover:bg-yellow-500 rounded-md p-2 text-white'
@@ -387,7 +394,7 @@
 
 @if (session('successUpdatePasien'))
         Swal.fire({
-            title: 'Gagal!',
+            title: 'Sukses!',
             text: '{{ session('successUpdatePasien') }}',
             icon: 'success',
             confirmButtonText: 'OK'

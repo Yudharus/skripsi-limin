@@ -213,7 +213,7 @@ const deleteDokter = (id) => {
 
 @if (session('successUpdateDokter'))
         Swal.fire({
-            title: 'Gagal!',
+            title: 'Sukses!',
             text: '{{ session('successUpdateDokter') }}',
             icon: 'success',
             confirmButtonText: 'OK'

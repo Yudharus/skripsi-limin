@@ -3,7 +3,7 @@
 
 
 @section('content')
-<h2 class="text-2xl font-bold mb-4">Verifikasi Pendaftaran</h2>
+<h2 class="text-2xl font-bold mb-4">Data Pendaftaran</h2>
 <form method="GET" action="{{ route('verifikasi.pendaftaran') }}">
     <label for="default-search" class="mb-2 text-sm font-medium sr-only text-white">Search</label>
     <div class="relative mb-8">
@@ -30,10 +30,12 @@
         <tr>
             <th class="py-2 px-4 border">Nama</th>
             <th class="py-2 px-4 border">NIK</th>
-            <th class="py-2 px-4 border">No.KTP</th>
+            <!-- <th class="py-2 px-4 border">No.KTP</th> -->
             <th class="py-2 px-4 border">Nama Dokter</th>
             <th class="py-2 px-4 border">Spesialis</th>
-            <th class="py-2 px-4 border">Verifikasi</th>
+            <th class="py-2 px-4 border">Keluhan</th>
+            <th class="py-2 px-4 border">Tanggal Pendaftaran</th>
+            <!-- <th class="py-2 px-4 border">Verifikasi</th> -->
         </tr>
     </thead>
     <tbody>
@@ -41,10 +43,12 @@
         <tr>
             <td class="py-2 px-4 border">{{ $data->nama_lengkap }}</td>
             <td class="py-2 px-4 border">{{ $data->nik }}</td>
-            <td class="py-2 px-4 border">{{ $data->no_ktp }}</td>
+            <!-- <td class="py-2 px-4 border">{{ $data->no_ktp }}</td> -->
             <td class="py-2 px-4 border">{{ $data->nama_dokter }}</td>
             <td class="py-2 px-4 border">{{ $data->spesialis }}</td>
-            <td class="py-2 px-4 border">
+            <td class="py-2 px-4 border">{{ $data->keluhan }}</td>
+            <td class="py-2 px-4 border">{{ $data->created_at }}</td>
+            <!-- <td class="py-2 px-4 border">
                 <form action="{{ route('verifikasi.updateStatus', $data->id_pasien) }}" method="POST" id="form-verifikasi-{{ $data->id_pasien }}">
                     @csrf
                     @method('PUT')
@@ -53,7 +57,7 @@
                         <option value="Ditolak" {{ $data->status_pendaftaran == 'Ditolak' ? 'selected' : '' }}>Ditolak</option>
                     </select>
                 </form>
-            </td>
+            </td> -->
         </tr>
         @endforeach
     </tbody>
